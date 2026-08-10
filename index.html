@@ -12,7 +12,6 @@
     font-family: "Microsoft Yahei", sans-serif;
 }
 body{
-    /* 玄幻星空底层渐变 */
     background:
         radial-gradient(circle at 10% 20%, rgba(255,255,255,0.8) 0%, transparent 8%),
         radial-gradient(circle at 30% 10%, rgba(180,140,255,0.6) 0%, transparent 10%),
@@ -26,7 +25,6 @@ body{
     padding-bottom: 160px;
     position: relative;
 }
-/* 星光闪烁层 */
 body::before{
     content: "";
     position: fixed;
@@ -44,7 +42,6 @@ body::before{
     background-position: 0 0, 10px 10px, 25px 25px;
     animation: twinkle 8s infinite ease-in-out;
 }
-/* 顶部星云紫光光晕 */
 body::after{
     content: "";
     position: fixed;
@@ -66,7 +63,6 @@ body::after{
     padding: 20px 0 12px;
     font-size: 42px;
     font-family: "KaiTi","STKaiti",serif;
-    /* 钻石粉晶文字渐变 */
     background: linear-gradient(135deg,#ffc6e8,#c3b2ff,#90d8ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -91,7 +87,6 @@ body::after{
     font-size: 15px;
     cursor: pointer;
     transition: 0.2s;
-    /* 水晶玻璃质感 */
     background: linear-gradient(145deg, rgba(255,230,250,0.25), rgba(190,210,255,0.15));
     color:#f0dfff;
     border: 1px solid rgba(255,220,250,0.25);
@@ -180,7 +175,7 @@ body::after{
     width: 100%;
     aspect-ratio: 1/1;
     border-radius: 12px;
-    overflow: hidden;
+    overflow:hidden;
     background: rgba(255,255,255,0.06);
     display: flex;
     align-items: center;
@@ -209,8 +204,6 @@ body::after{
     padding: 40px 0;
     grid-column:1/-1;
 }
-
-/* ===== 悬浮播放器窗口 ===== */
 .right-big-container{
     position: fixed;
     top:140px;
@@ -270,7 +263,6 @@ body::after{
 .resize-rt{right:0;top:0;width:12px;height:12px;cursor:ne-resize;}
 .resize-lb{left:0;bottom:0;width:12px;height:12px;cursor:sw-resize;}
 .resize-rb{right:0;bottom:0;width:12px;height:12px;cursor:se-resize;}
-
 .playlist-sidebar{
     width:38%;
     border-right:1px solid rgba(220,180,255,0.22);
@@ -364,7 +356,6 @@ body::after{
     flex-shrink:0;
     box-shadow: inset 0 1px 1px rgba(255,255,255,0.4),0 2px 6px rgba(220,80,130,0.25);
 }
-
 .video-container{
     flex:1;
     padding:8px;
@@ -393,8 +384,6 @@ body::after{
     backdrop-filter: blur(4px);
     box-shadow: inset 0 1px 1px rgba(255,255,255,0.35), inset 0 -4px 10px rgba(180,140,255,0.25), 0 3px 8px rgba(90,60,180,0.2);
 }
-
-/* ========== 底部播放器布局 ========== */
 .bottom-player{
     position:fixed;
     left:0;
@@ -459,7 +448,6 @@ body::after{
     gap:10px;
     align-items:center;
 }
-/* 水晶钻石胶囊按钮 */
 .control-btn{
     border: none;
     border-radius: 999px;
@@ -503,7 +491,6 @@ body::after{
         0 2px 0 #422d88,
         0 4px 12px rgba(190,130,255,0.25);
 }
-
 .lyric-area{
     text-align: center;
     font-size: 16px;
@@ -515,8 +502,6 @@ body::after{
 }
 .lyric-normal{color:#b8a2dd;}
 .lyric-active{color:#ffb8ee;font-weight:bold;}
-
-/* =========【已修改：酷狗样式悬浮歌词】========= */
 .float-lyric-wrap{
     position: fixed;
     bottom: 170px;
@@ -531,12 +516,10 @@ body::after{
     display:block;
     padding:10px 14px;
     border-radius:14px;
-    /* 默认：透明，无背景无边框，只显示文字 */
     background: transparent;
     border:1px solid transparent;
     transition: all 0.25s ease;
 }
-/* 鼠标移入才显示拖拽外框 */
 .float-lyric-wrap:hover{
     background:rgba(40,20,70,0.22);
     border: 1px solid rgba(210,170,255,0.35);
@@ -563,7 +546,6 @@ body::after{
 </head>
 <body>
 <div class="main-title">步丝丝《朝歌》</div>
-
 <div class="nav-bar">
     <button class="nav-btn active" data-type="all">首页 Home</button>
     <button class="nav-btn" data-type="music">音乐 Music</button>
@@ -571,12 +553,10 @@ body::after{
     <button class="nav-btn" data-type="image">图片</button>
     <button class="nav-btn" data-type="reward">赞赏</button>
 </div>
-
 <div class="search-bar">
     <input id="searchInput" placeholder="搜索歌曲名、歌手">
     <button id="searchBtn">搜索 Search</button>
 </div>
-
 <div class="main-wrap">
     <div class="left-card-area">
         <div class="card-wrap" id="cardContainer">
@@ -584,8 +564,6 @@ body::after{
         </div>
     </div>
 </div>
-
-<!-- 右侧悬浮播放器窗口 -->
 <div class="right-big-container" id="floatWindow">
     <div class="drag-handle" id="dragHandle">
         <button class="minimize-win-btn" id="minWinBtn">−</button>
@@ -598,7 +576,6 @@ body::after{
     <div class="resize-handle resize-rt" data-dir="rt"></div>
     <div class="resize-handle resize-lb" data-dir="lb"></div>
     <div class="resize-handle resize-rb" data-dir="rb"></div>
-
     <div class="playlist-sidebar" id="playlistSide">
         <div class="sidebar-head">
             <h4>播放目录</h4>
@@ -606,7 +583,6 @@ body::after{
         </div>
         <div class="playlist-scroll" id="playlistScroll"></div>
     </div>
-
     <div class="player-window">
         <div class="video-container">
             <video id="mainVideo" preload="auto" playsinline webkit-playsinline></video>
@@ -614,11 +590,8 @@ body::after{
         </div>
     </div>
 </div>
-
-<!-- 底部播放器：最终布局 -->
 <div class="bottom-player">
     <div class="inner-row">
-        <!-- 左侧：播放目录切换按钮 + 播放控制 -->
         <div class="left-control-group">
             <button class="control-btn" id="togglePlaylistBtn">目录</button>
             <div class="player-control-row">
@@ -629,7 +602,6 @@ body::after{
                 <button class="control-btn" id="nextBtn">▶▶</button>
             </div>
         </div>
-        <!-- 中间：进度条+时间 -->
         <div class="mid-progress-area">
             <div class="progress-wrap" id="progressWrap">
                 <div class="progress-bar" id="progressBar"></div>
@@ -639,29 +611,25 @@ body::after{
                 <span id="totalTimeText">00:00</span>
             </div>
         </div>
-        <!-- 右侧：打开播放器按钮（和进度条水平平齐） -->
         <div class="right-control-group">
             <button class="control-btn play-main" id="openPlayerBtn">打开播放器</button>
         </div>
     </div>
 </div>
-
 <div class="float-lyric-wrap" id="floatLyricWrap">
     <div class="lyric-line prev-line" id="prevLyric"></div>
     <div class="lyric-line curr-line" id="currLyric"></div>
 </div>
-
 <audio id="mainAudio" preload="auto">
-
 <script>
-const API_BASE = "https://app.busisi.com";
+// 修正：接口域名是Worker api.busisi.com
+const API_BASE = "https://api.busisi.com";
 let currentPlayList = [];
 let currentTabType = "all";
 let allResourceList = [];
 let nowPlayingItem = null;
 let parsedLyricList = [];
 let lastPlayTime = 0;
-
 const dom = {
     floatWindow: document.getElementById("floatWindow"),
     dragHandle: document.getElementById("dragHandle"),
@@ -691,24 +659,18 @@ const dom = {
     minWinBtn:document.getElementById("minWinBtn"),
     openPlayerBtn:document.getElementById("openPlayerBtn")
 };
-
-// 最小化悬浮播放器
 dom.minWinBtn.onclick = ()=>{
     dom.floatWindow.classList.add("minimize-state");
 }
-// 底部右侧按钮恢复悬浮播放器
 dom.openPlayerBtn.onclick = ()=>{
     dom.floatWindow.classList.remove("minimize-state");
 }
-// 底部左侧目录按钮：切换播放列表侧边栏显示隐藏
 dom.togglePlaylistBtn.onclick = ()=>{
     dom.playlistSide.style.display = dom.playlistSide.style.display === "none" ? "flex" : "none";
 }
 dom.hideSideBtn.onclick = ()=>{
     dom.playlistSide.style.display = "none";
 }
-
-// ========= 窗口拖拽移动 =========
 (function initWindowDrag(){
     let dragging = false;
     let startX, startY, winStartLeft, winStartTop;
@@ -733,8 +695,6 @@ dom.hideSideBtn.onclick = ()=>{
         dom.floatWindow.style.zIndex = 99;
     })
 })();
-
-// ========= 窗口四边四角拉伸缩放 =========
 (function initWindowResize(){
     const handles = document.querySelectorAll(".resize-handle");
     let resizing = false;
@@ -742,7 +702,6 @@ dom.hideSideBtn.onclick = ()=>{
     let startX, startY;
     let startW, startH;
     let startL, startT;
-
     handles.forEach(hd=>{
         hd.addEventListener("mousedown",e=>{
             resizing = true;
@@ -763,7 +722,6 @@ dom.hideSideBtn.onclick = ()=>{
         const dy = e.clientY - startY;
         const minW = parseInt(dom.floatWindow.style.minWidth);
         const minH = parseInt(dom.floatWindow.style.minHeight);
-
         if(dir === "r") dom.floatWindow.style.width = `${Math.max(minW, startW + dx)}px`;
         if(dir === "b") dom.floatWindow.style.height = `${Math.max(minH, startH + dy)}px`;
         if(dir === "rb"){
@@ -818,14 +776,10 @@ dom.hideSideBtn.onclick = ()=>{
         dom.floatWindow.style.zIndex = 99;
     })
 })();
-
-// 视频全屏
 dom.videoFullBtn.onclick = ()=>{
     if (dom.mainVideo.requestFullscreen) dom.mainVideo.requestFullscreen();
     else if (dom.mainVideo.webkitRequestFullscreen) dom.mainVideo.webkitRequestFullscreen();
 }
-
-// =========【优化后的悬浮歌词拖拽】=========
 (function initLyricDrag(){
     const wrap = dom.floatLyricWrap;
     let dragging = false, startX, startY, initLeft, initTop;
@@ -843,7 +797,6 @@ dom.videoFullBtn.onclick = ()=>{
         if(!dragging) return;
         const moveX = initLeft + (e.clientX - startX);
         const moveY = initTop + (e.clientY - startY);
-        // 边界限制，防止拖出屏幕
         wrap.style.left = `${Math.max(0, Math.min(moveX, window.innerWidth - wrap.offsetWidth))}px`;
         wrap.style.top = `${Math.max(0, Math.min(moveY, window.innerHeight - wrap.offsetHeight))}px`;
     });
@@ -852,7 +805,6 @@ dom.videoFullBtn.onclick = ()=>{
         wrap.style.zIndex = 9999;
     })
 })();
-
 function getCurrentMedia(){
     return nowPlayingItem?.type==="video"?dom.mainVideo:dom.mainAudio;
 }
@@ -861,7 +813,6 @@ function formatTime(s){
     const sec = Math.floor(s % 60);
     return `${String(m).padStart(2,"0")}:${String(sec).padStart(2,"0")}`;
 }
-
 dom.rewindBtn.onclick = ()=>{
     const m = getCurrentMedia(); if(!m) return; m.currentTime -=10;
 }
@@ -894,7 +845,6 @@ function syncPlayBtnStatus(){
     }
     dom.playPauseBtn.innerText = m.paused ? "▶" : "⏸";
 }
-
 dom.progressWrap.onclick = function(e){
     const media = getCurrentMedia();
     if(!media || !media.duration) return;
@@ -902,7 +852,6 @@ dom.progressWrap.onclick = function(e){
     const percent = (e.clientX - rect.left) / rect.width;
     media.currentTime = percent * media.duration;
 }
-
 function parseLRC(text){
     const result = [];
     const reg = /\[(\d{2}):(\d{2})(?:\.(\d{1,3}))?\](.*)/;
@@ -952,7 +901,6 @@ function updateFloatLyric(nowT){
     dom.prevLyric.innerText=parsedLyricList[currIndex-1]?.text||"";
     dom.currLyric.innerHTML = renderKaraokeLine(currLine.text, ratio);
 }
-
 document.addEventListener("keydown",e=>{
     const targetTag = e.target.tagName;
     if(targetTag === "INPUT" || targetTag === "TEXTAREA") return;
@@ -974,7 +922,6 @@ document.addEventListener("keydown",e=>{
             break;
     }
 })
-
 window.addEventListener("load", async () => {
     if(location.protocol==="file:"){
         dom.cardContainer.innerHTML=`<div class="load-tip" style="color:#ffc6e8">禁止本地双击打开HTML，必须网页托管访问</div>`;
@@ -990,7 +937,6 @@ window.addEventListener("load", async () => {
     });
     dom.searchBtn.addEventListener("click",searchResource);
     dom.searchInput.addEventListener("keydown",e=>e.key==="Enter"&&searchResource());
-
     const timeUpdateFunc = function(){
         updateFloatLyric(this.currentTime);
     }
@@ -998,7 +944,6 @@ window.addEventListener("load", async () => {
     dom.mainAudio.ontimeupdate = timeUpdateFunc;
     dom.mainVideo.onended = playNext;
     dom.mainAudio.onended = playNext;
-
     try{
         const res=await fetch(`${API_BASE}/getResourceList`);
         if(!res.ok) throw new Error(`接口状态码:${res.status}`);
@@ -1039,13 +984,11 @@ function renderCard(list){
         dom.cardContainer.appendChild(card);
     })
 }
-
 function addPlaylist(item){
     if(currentPlayList.some(i=>i.id===item.id))return;
     currentPlayList.push(item);
     renderPlaylist();
 }
-
 function renderPlaylist(){
     dom.playlistScroll.innerHTML="";
     if(currentPlayList.length===0){
@@ -1071,7 +1014,6 @@ function renderPlaylist(){
         dom.playlistScroll.appendChild(div);
     })
 }
-
 async function playMedia(item){
     nowPlayingItem=item;
     dom.mainVideo.pause();
@@ -1082,7 +1024,6 @@ async function playMedia(item){
     lastPlayTime = 0;
     dom.prevLyric.innerText = "";
     dom.currLyric.innerHTML = "<span class='lyric-normal'>加载中...</span>";
-
     if(item.type === "video"){
         dom.mainVideo.src = item.videoLink;
         dom.mainVideo.load();
@@ -1093,7 +1034,6 @@ async function playMedia(item){
         dom.mainAudio.play().catch(err=>{});
     }
     renderPlaylist();
-
     if(!item.lyricName){
         dom.currLyric.innerHTML = "<span class='lyric-normal'>暂无匹配歌词</span>";
         return;
@@ -1111,7 +1051,6 @@ async function playMedia(item){
         dom.currLyric.innerHTML = "<span class='lyric-normal'>歌词加载失败</span>";
     }
 }
-
 function searchResource(){
     const kw=dom.searchInput.value.trim().toLowerCase();
     if(!kw){
